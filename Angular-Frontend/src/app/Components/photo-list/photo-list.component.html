@@ -1,0 +1,23 @@
+<div class="row mb-4">
+  <div class="col-12 col-lg-4">
+    <form class="card card-body">
+      <div class="form-inline">
+        <button class="btn btn-outline-dark btn-block mt-2" (click)="showModal()"><i
+            class="fas fa-search"></i> Search</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-12 col-md-6 col-lg-4" *ngFor="let photo of photoService.selectedPhoto">
+    <div class="card card-photo animated fadeIn m-auto my-5" style="width: 18rem;" (click)="previewCard(photo._id)">
+      <img [src]="'http://localhost:3000/' + photo.ImagePath" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">{{ photo.Title }}</h5>
+        <p class="card-text">{{ photo.Description }}.</p>
+        <p>{{ photo.Date | date }}</p>
+      </div>
+    </div>
+  </div>
+</div>

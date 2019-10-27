@@ -1,0 +1,30 @@
+
+<div class="col-lg-5 mx-auto">
+  <div class="card">
+    <div class="card-header bg-primary text-center">
+      <p class="lead text-white">Upload a Photo</p>
+    </div>
+    <div class="card-body">
+      <form #PhotoForm="ngForm" (ngSubmit)="uploadPhoto(Title, Description)">
+
+        <div class="form-group">
+          <input type="text" name="Title" ngModel class="form-control" placeholder="Photo's Title" required #Title="ngModel">
+        </div>
+
+        <div class="form-group">
+          <textarea name="Description" ngModel class="form-control" placeholder="Photo's Description" required #Description="ngModel"></textarea>
+        </div>
+
+        <div class="form-group">
+          <input type="file" name="ImagePath" ngModel class="d-none" (change)="onPhotoSelected($event)" #photoInput>
+          <img [src]="photoSelected || 'assets/no-image-icon.png'" alt="image" class="img-fluid" (click)="photoInput.click()">
+        </div>
+
+        <div class="form-group">
+          <button class="btn btn-outline-primary btn-block"><i class="fas fa-upload"></i> Upload</button>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>
